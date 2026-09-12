@@ -1,0 +1,20 @@
+{
+  "name": "기독교대한감리회 새빛교회",
+  "short_name": "새빛교회",
+  "description": "새빛교회 홈페이지 · 주보 · 성경통독",
+  "lang": "ko-KR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#16324F",
+  "icons": [
+    {
+      "src": "app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
