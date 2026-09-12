@@ -39,11 +39,6 @@
         <p class="eyebrow">기독교대한감리회 새빛교회</p>
         <h1>세상에 새빛을 비추는 교회</h1>
         <p>새빛교회를 방문해 주신 여러분을 환영합니다.<br>말씀 안에서 새 힘을 얻고 믿음의 길을 함께 걷습니다.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="bulletins/index.html">이번 주 주보 보기</a>
-          <a class="btn ghost" href="bible-reading/index.html">성경통독 자료 보기</a>
-          <button class="btn ghost" id="installApp" type="button" hidden>홈 화면에 설치</button>
-        </div>
       </div>
     </section>
 
@@ -133,22 +128,6 @@
   if('serviceWorker' in navigator){
     window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
   }
-
-  let deferredInstallPrompt=null;
-  const installButton=document.getElementById('installApp');
-  window.addEventListener('beforeinstallprompt',event=>{
-    event.preventDefault();
-    deferredInstallPrompt=event;
-    installButton.hidden=false;
-  });
-  installButton?.addEventListener('click',async()=>{
-    if(!deferredInstallPrompt)return;
-    deferredInstallPrompt.prompt();
-    await deferredInstallPrompt.userChoice;
-    deferredInstallPrompt=null;
-    installButton.hidden=true;
-  });
-  window.addEventListener('appinstalled',()=>{if(installButton)installButton.hidden=true});
   </script>
 </body>
 </html>
