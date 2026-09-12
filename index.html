@@ -4,8 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#16324F" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="새빛교회" />
   <title>기독교대한감리회 새빛교회</title>
   <meta name="description" content="기독교대한감리회 새빛교회 홈페이지 및 주보·성경통독 게시판" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="app-icon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -36,6 +42,7 @@
         <div class="hero-actions">
           <a class="btn primary" href="bulletins/index.html">이번 주 주보 보기</a>
           <a class="btn ghost" href="bible-reading/index.html">성경통독 자료 보기</a>
+          <button class="btn ghost" id="installApp" type="button" hidden>홈 화면에 설치</button>
         </div>
       </div>
     </section>
@@ -122,6 +129,26 @@
   const b=document.querySelector('.menu-btn'),m=document.querySelector('.menu');
   b?.addEventListener('click',()=>{m.classList.toggle('open');b.setAttribute('aria-expanded',m.classList.contains('open'))});
   document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('open')));
+
+  if('serviceWorker' in navigator){
+    window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+  }
+
+  let deferredInstallPrompt=null;
+  const installButton=document.getElementById('installApp');
+  window.addEventListener('beforeinstallprompt',event=>{
+    event.preventDefault();
+    deferredInstallPrompt=event;
+    installButton.hidden=false;
+  });
+  installButton?.addEventListener('click',async()=>{
+    if(!deferredInstallPrompt)return;
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt=null;
+    installButton.hidden=true;
+  });
+  window.addEventListener('appinstalled',()=>{if(installButton)installButton.hidden=true});
   </script>
 </body>
 </html>
