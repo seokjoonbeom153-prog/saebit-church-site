@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#16324F" />
   <title>기독교대한감리회 새빛교회</title>
-  <meta name="description" content="기독교대한감리회 새빛교회 홈페이지 및 주보 게시판" />
+  <meta name="description" content="기독교대한감리회 새빛교회 홈페이지 및 주보·성경통독 게시판" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,16 +13,14 @@
     <div class="wrap nav">
       <a class="brand" href="#home" aria-label="새빛교회 홈">
         <span class="brand-mark">✝</span>
-        <span>
-          <strong>새빛교회</strong>
-          <small>기독교대한감리회</small>
-        </span>
+        <span><strong>새빛교회</strong><small>기독교대한감리회</small></span>
       </a>
       <button class="menu-btn" aria-label="메뉴 열기" aria-expanded="false">☰</button>
       <nav class="menu">
         <a href="#about">교회소개</a>
         <a href="#worship">예배안내</a>
         <a href="#bulletin">주보</a>
+        <a href="bible-reading/index.html">성경통독</a>
         <a href="#sermon">설교</a>
         <a href="#location">오시는 길</a>
       </nav>
@@ -37,7 +35,7 @@
         <p>새빛교회를 방문해 주신 여러분을 환영합니다.<br>말씀 안에서 새 힘을 얻고 믿음의 길을 함께 걷습니다.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#bulletin">이번 주 주보 보기</a>
-          <a class="btn ghost" href="#worship">예배 시간 보기</a>
+          <a class="btn ghost" href="bible-reading/index.html">성경통독 자료 보기</a>
         </div>
       </div>
     </section>
@@ -53,8 +51,7 @@
 
     <section id="worship" class="section alt">
       <div class="wrap">
-        <p class="section-kicker">WORSHIP</p>
-        <h2>예배 안내</h2>
+        <p class="section-kicker">WORSHIP</p><h2>예배 안내</h2>
         <div class="worship-grid">
           <article><strong>주일 낮 예배</strong><span>오전 11:00</span></article>
           <article><strong>주일 오후 예배</strong><span>오후 1:30</span></article>
@@ -67,66 +64,39 @@
 
     <section id="bulletin" class="section bulletin-section">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker">WEEKLY BULLETIN</p>
-            <h2>주보</h2>
-            <p class="lead compact">매주 새로운 주보와 교회 소식을 확인하실 수 있습니다.</p>
-          </div>
-          <label class="search-box">
-            <span>검색</span>
-            <input id="bulletinSearch" type="search" placeholder="날짜, 제목, 본문 검색" />
-          </label>
-        </div>
-        <div id="latestBulletin"></div>
-        <div class="bulletin-toolbar">
-          <h3>지난 주보</h3>
-          <select id="yearFilter" aria-label="연도 선택"></select>
-        </div>
-        <div id="bulletinList" class="bulletin-list"></div>
+        <div class="section-head"><div><p class="section-kicker">WEEKLY BULLETIN</p><h2>주보</h2><p class="lead compact">매주 새로운 주보와 교회 소식을 확인하실 수 있습니다.</p></div></div>
+        <div class="simple-card"><strong>주보 게시판</strong><p>매주 새로운 주보 자료가 업데이트됩니다.</p></div>
       </div>
     </section>
 
-    <section id="sermon" class="section alt">
+    <section id="bible-reading" class="section alt">
       <div class="wrap">
-        <p class="section-kicker">SERMON</p>
-        <h2>설교</h2>
+        <p class="section-kicker">BIBLE READING</p>
+        <h2>성경통독</h2>
+        <p class="lead">매주 통독 범위와 핵심 주제, 장별 통독 포인트, 묵상 질문을 모바일에서 편하게 확인하세요.</p>
         <div class="simple-card">
-          <strong>말씀으로 오늘을 살아갑니다</strong>
-          <p>새빛교회의 설교 영상과 말씀 자료가 이곳에 업데이트될 예정입니다.</p>
+          <strong>신약 6주차 · 누가복음 15–24장</strong>
+          <p>잃어버린 자를 찾아 구원하시는 예수님 · 십자가와 부활 · 증인의 삶</p>
+          <a class="btn primary" href="bible-reading/new-testament-week6.html">6주차 통독자료 보기</a>
+          <a class="btn" style="margin-left:8px;border:1px solid #dbe2e8" href="bible-reading/index.html">성경통독 게시판 전체보기</a>
         </div>
       </div>
     </section>
 
-    <section id="location" class="section">
-      <div class="wrap">
-        <p class="section-kicker">LOCATION</p>
-        <h2>오시는 길</h2>
-        <div class="location-card">
-          <strong>기독교대한감리회 새빛교회</strong>
-          <p>대전광역시 중구 평촌로 112, 2층</p>
-          <a class="btn primary" target="_blank" rel="noopener" href="https://map.naver.com/p/search/%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%A4%91%EA%B5%AC%20%ED%8F%89%EC%B4%8C%EB%A1%9C%20112">네이버 지도에서 보기 ↗</a>
-        </div>
-      </div>
+    <section id="sermon" class="section">
+      <div class="wrap"><p class="section-kicker">SERMON</p><h2>설교</h2><div class="simple-card"><strong>말씀으로 오늘을 살아갑니다</strong><p>새빛교회의 설교 영상과 말씀 자료가 이곳에 업데이트될 예정입니다.</p></div></div>
+    </section>
+
+    <section id="location" class="section alt">
+      <div class="wrap"><p class="section-kicker">LOCATION</p><h2>오시는 길</h2><div class="location-card"><strong>기독교대한감리회 새빛교회</strong><p>대전광역시 중구 평촌로 112, 2층</p><a class="btn primary" target="_blank" rel="noopener" href="https://map.naver.com/p/search/%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%A4%91%EA%B5%AC%20%ED%8F%89%EC%B4%8C%EB%A1%9C%20112">네이버 지도에서 보기 ↗</a></div></div>
     </section>
   </main>
 
-  <div id="bulletinModal" class="modal" aria-hidden="true">
-    <div class="modal-backdrop" data-close></div>
-    <article class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" data-close aria-label="닫기">×</button>
-      <div id="modalContent"></div>
-    </article>
-  </div>
-
-  <footer>
-    <div class="wrap">
-      <strong>기독교대한감리회 새빛교회</strong>
-      <p>대전광역시 중구 평촌로 112, 2층</p>
-      <small>© 새빛교회. All rights reserved.</small>
-    </div>
-  </footer>
-
-  <script src="app.js"></script>
+  <footer><div class="wrap"><strong>기독교대한감리회 새빛교회</strong><p>대전광역시 중구 평촌로 112, 2층</p><small>© 새빛교회. All rights reserved.</small></div></footer>
+  <script>
+  const b=document.querySelector('.menu-btn'),m=document.querySelector('.menu');
+  b?.addEventListener('click',()=>{m.classList.toggle('open');b.setAttribute('aria-expanded',m.classList.contains('open'))});
+  document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('open')));
+  </script>
 </body>
 </html>
