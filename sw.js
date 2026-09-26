@@ -1,4 +1,4 @@
-const CACHE = "saebit-church-v5";
+const CACHE = "saebit-church-v6";
 const ASSETS = [
   "./",
   "./index.html",
@@ -13,6 +13,7 @@ const ASSETS = [
   "./bible-reading/new-testament-week8.html",
   "./family-prayers/index.html",
   "./family-prayers/prayer-for-family.html",
+  "./sermons/index.html",
   "./assets/family-prayer/prayer-for-family.pdf",
   "./assets/family-prayer/prayer-for-family-p1.jpg",
   "./assets/family-prayer/prayer-for-family-p2.jpg",
