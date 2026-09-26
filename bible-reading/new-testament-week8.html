@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>신약 8주차 · 요한복음 11–21장 | 새빛교회</title>
+    <meta name="theme-color" content="#173b4a" />
+    <style>
+      :root {
+        --bg: #f4f6f2;
+        --card: #fff;
+        --text: #1f2937;
+        --muted: #697386;
+        --line: #e4e8ec;
+        --accent: #173b4a;
+        --soft: #eef3f5;
+        --good: #2c7a55;
+        --gold: #c6a15b;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Arial,
+          sans-serif;
+        font-size: 17px;
+        line-height: 1.72;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .wrap {
+        max-width: 900px;
+        margin: auto;
+        padding: 0 16px;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(244, 246, 242, 0.94);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 0;
+      }
+      .brand {
+        font-weight: 800;
+      }
+      .sub {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .btn {
+        border: 1px solid var(--line);
+        background: var(--card);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 9px 11px;
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+      .nav {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 12px;
+      }
+      .nav a {
+        white-space: nowrap;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        color: var(--accent);
+      }
+      main {
+        padding: 18px 0 54px;
+      }
+      .hero,
+      .panel,
+      .chapter,
+      .message {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 20px;
+        margin-bottom: 14px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+        line-height: 1.22;
+        margin: 8px 0 12px;
+      }
+      .verse {
+        background: var(--soft);
+        padding: 15px;
+        border-radius: 15px;
+        font-weight: 800;
+      }
+      .flow {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+      .grid {
+        display: grid;
+        gap: 14px;
+      }
+      @media (min-width: 760px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .section-title {
+        font-size: 1.25rem;
+        font-weight: 800;
+        margin: 28px 2px 12px;
+      }
+      .progress {
+        height: 14px;
+        background: var(--soft);
+        border-radius: 999px;
+        overflow: hidden;
+        margin: 10px 0;
+      }
+      .bar {
+        height: 100%;
+        width: 0;
+        background: var(--good);
+        transition: 0.2s;
+      }
+      .bar.memory {
+        background: var(--gold);
+      }
+      .chapter {
+        padding: 0;
+        overflow: hidden;
+      }
+      .chapter summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .chapter summary::-webkit-details-marker {
+        display: none;
+      }
+      .chapter strong {
+        display: block;
+      }
+      .chapter small {
+        color: var(--muted);
+      }
+      .content {
+        padding: 0 16px 18px;
+        border-top: 1px solid var(--line);
+      }
+      .tag {
+        display: inline-block;
+        margin-top: 12px;
+        background: var(--soft);
+        color: var(--accent);
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 0.73rem;
+        font-weight: 800;
+      }
+      .q {
+        border-left: 4px solid var(--line);
+        padding-left: 12px;
+        color: var(--muted);
+      }
+      .check-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 16px;
+      }
+      .check-box {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        border: 1px solid var(--line);
+        background: var(--soft);
+        border-radius: 13px;
+        padding: 12px 13px;
+        font-weight: 800;
+        font-size: 0.88rem;
+        cursor: pointer;
+      }
+      .check-box.memory {
+        background: #fffaf0;
+        border-color: #eadab7;
+      }
+      .check-box input {
+        width: 20px;
+        height: 20px;
+        flex: 0 0 auto;
+        accent-color: var(--good);
+      }
+      .check-box.memory input {
+        accent-color: var(--gold);
+      }
+      .done-dot {
+        display: inline-block;
+        margin-left: 7px;
+        font-size: 0.7rem;
+        color: var(--good);
+        font-weight: 900;
+      }
+      .message h2,
+      .message h3 {
+        margin-top: 0;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.78rem;
+        padding: 24px 16px 40px;
+      }
+      @media (max-width: 520px) {
+        .check-row {
+          grid-template-columns: 1fr;
+        }
+        .top {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <div class="top">
+          <div>
+            <div class="brand">신약 8주차 · 요한복음 11–21장</div>
+            <div class="sub">죽음을 이기시고 생명을 주시는 예수님</div>
+          </div>
+          <a class="btn" href="index.html">성경통독 홈</a>
+        </div>
+        <nav class="nav">
+          <a href="#top">전체</a><a href="#progress">진행률</a
+          ><a href="#chapters">장별통독</a><a href="#message">5분메시지</a
+          ><a href="#questions">나눔질문</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap" id="top">
+      <section class="hero">
+        <div style="font-size: 0.78rem; font-weight: 800; color: var(--accent)">
+          개역개정 기준 · 모바일 통독 교재
+        </div>
+        <h1>
+          부활과 생명이신 주님,<br />십자가를 지신 왕,<br />다시 사신 예수님
+        </h1>
+        <p>
+          요한복음 11–21장은 죽은 나사로를 살리신 예수님이 친히 십자가에
+          죽으시고 부활하셔서 제자들을 다시 세우시는 과정을 보여 줍니다.
+        </p>
+        <div class="verse">
+          “예수께서 이르시되 나는 부활이요 생명이니 나를 믿는 자는 죽어도
+          살겠고”<br />요한복음 11장 25절
+        </div>
+        <div class="flow">
+          부활과 생명 → 섬김과 사랑 → 보혜사의 약속 → 참포도나무 → 십자가 → 부활
+          → 회복과 사명
+        </div>
+      </section>
+      <div class="grid" id="progress">
+        <section class="panel">
+          <h3>통독 진행률</h3>
+          <div class="progress"><div class="bar" id="readBar"></div></div>
+          <div id="readLabel" style="font-weight: 800">0 / 11장 완료</div>
+        </section>
+        <section class="panel">
+          <h3>주제성구 암송 진행률</h3>
+          <div class="progress">
+            <div class="bar memory" id="memoryBar"></div>
+          </div>
+          <div id="memoryLabel" style="font-weight: 800">0 / 11구절 완료</div>
+        </section>
+      </div>
+      <div class="grid">
+        <section class="panel">
+          <h3>통독 전 질문</h3>
+          <p>1. 예수님은 죽음 앞에서 자신을 누구라고 밝히시는가?</p>
+          <p>2. 제자들에게 주신 새 계명은 무엇인가?</p>
+          <p>3. 예수님의 십자가와 부활은 무엇을 이루는가?</p>
+          <p>4. 부활하신 예수님은 실패한 제자를 어떻게 다시 세우시는가?</p>
+        </section>
+        <section class="panel">
+          <h3>이번 주 핵심 흐름</h3>
+          <p>
+            예수님은 부활과 생명이시며, 제자들의 발을 씻기고 새 계명을 주십니다.
+            십자가에서 구원을 완성하시고 부활하신 뒤 두려워하는 제자들에게
+            평안을 주시며, 베드로를 회복시켜 다시 맡기십니다.
+          </p>
+        </section>
+      </div>
+      <div class="section-title" id="chapters">장별 통독 가이드</div>
+      <details class="chapter" data-ch="11">
+        <summary>
+          <div>
+            <strong
+              >11장 · 나는 부활이요 생명이니
+              <span class="done-dot" id="status11"></span></strong
+            ><small>나사로 · 눈물 · 부활</small>
+          </div>
+        </summary>
+        <div class="content">
+          <span class="tag">핵심 메시지</span>
+          <p>
+            예수님은 죽은 나사로를 살리시며 자신이 마지막 날의 부활만 주시는
+            분이 아니라 지금 생명을 주시는 부활의 주님임을 나타내십니다.
+          </p>
+          <span class="tag">주제성구</span>
+          <p><strong>요한복음 11장 25절</strong></p>
+          <span class="tag">통독 포인트</span>
+          <p>
+            마르다와 마리아의 고백, 예수님의 눈물, 나사로를 무덤에서 불러내시는
+            장면을 살펴보세요.
+          </p>
+          <p class="q">
+            묵상 질문: 마르다에게 하신 “이것을 네가 믿느냐”는 질문에 나는 어떻게
+            대답하는가?
+          </p>
+          <div class="check-row">
+            <label class="check-box"
+              ><input type="checkbox" class="readCheck" data-ch="11" />11장 통독
+              완료</label
+            ><label class="check-box memory"
+              ><input
+                type="checkbox"
+                class="memoryCheck"
+                data-ch="11"
+              />주제성구 암송 완료</label
+            >
+          </div>
+        </div>
+      </details>
+      <details class="chapter" data-ch="12">
+        <summary>
+          <div>
+            <strong
+              >12장 · 한 알의 밀이 땅에 떨어져
+              <span class="done-dot" id="status12"></span></strong
+            ><small>마리아의 향유 · 왕의 입성 · 죽음의 길</small>
+          </div>
+        </summary>
+        <div class="content">
+          <span class="tag">핵심 메시지</span>
+          <p>
+            마리아는 예수님의 장례를 준비하듯 향유를 붓고, 예수님은 한 알의 밀이
+            죽어 많은 열매를 맺는 십자가의 길을 밝히십니다.
+          </p>
+          <span class="tag">주제성구</span>
+          <p><strong>요한복음 12장 24절</strong></p>
+          <p class="q">
+            묵상 질문: 사람들이 기대한 왕과 예수님이 보여 주신 왕의 모습은
+            어떻게 다른가?
+          </p>
+          <div class="check-row">
+            <label class="check-box"
+              ><input type="checkbox" class="readCheck" data-ch="12" />12장 통독
+              완료</label
+            ><label class="check-box memory"
+              ><input
+                type="checkbox"
+                class="memoryCheck"
+                data-ch="12"
+              />주제성구 암송 완료</label
+            >
+          </div>
+        </div>
+      </details>
+      <details class="chapter" data-ch="13">
+        <summary>
+          <div>
+            <strong
+              >13장 · 끝까지 사랑하시니라
+              <span class="done-dot" id="status13"></span></strong
+            ><small>발 씻김 · 배신 예고 · 새 계명</small>
+          </div>
+        </summary>
+        <div class="content">
+          <span class="tag">핵심 메시지</span>
+          <p>
+            예수님은 십자가를 앞두고 제자들의 발을 씻기시며 주님의 사랑을 받은
+            제자는 서로 사랑해야 한다고 명령하십니다.
+          </p>
+          <span class="tag">주제성구</span>
+          <p><strong>요한복음 13장 34절</strong></p>
+          <p class="q">
+            묵상 질문: 발을 씻기신 예수님의 행동은 사랑을 어떻게 보여 주는가?
+          </p>
+          <div class="check-row">
+            <label class="check-box"
+              ><input type="checkbox" class="readCheck" data-ch="13" />13장 통독
+              완료</label
+            ><label class="check-box memory"
+              ><input
+                type="checkbox"
+                class="memoryCheck"
+                data-ch="13"
+              />주제성구 암송 완료</label
+            >
+          </div>
+        </div>
+      </details>
+      <details class="chapter" data-ch="14">
+        <summary>
+          <div>
+            <strong
+              >14장 · 길이요 진리요 생명이신 예수님
+              <span class="done-dot" id="status14"></span></strong
+            ><small>아버지의 집 · 보혜사 · 평안</small>
+          </div>
+        </summary>
+        <div class="content">
+          <span class="tag">핵심 메시지</span>
+          <p>
+            근심하는 제자들에게 예수님은 자신이 아버지께 이르는 유일한 길임을
+            밝히시고 성령과 참된 평안을 약속하십니다.
+          </p>
+          <span class="tag">주제성구</span>
+          <p><strong>요한복음 14장 6절</strong></p>
+          <p class="q">
+            묵상 질문: 예수님이 주시는 평안은 세상이 주는 평안과 어떻게 다른가?
+          </p>
+          <div class="check-row">
+            <label class="check-box"
+              ><input type="checkbox" class="readCheck" data-ch="14" />14장 통독
+              완료</label
+            ><label class="check-box memory"
+              ><input
+                type="checkbox"
+                class="memoryCheck"
+                data-ch="14"
+              />주제성구 암송 완료</label
+            >
+          </div>
+        </div>
+      </details>
+      <details class="chapter" data-ch="15">
+        <summary>
+          <div>
+            <strong
+              >15장 · 내 안에 거하라
+              <span class="done-dot" id="status15"></span></strong
+            ><small>참포도나무 · 열매 · 친구</small>
+          </div>
+        </summary>
+        <div class="content">
+          <span class="tag">핵심 메시지</span>
+          <p>
+            예수님은 참포도나무이시며, 가지인 제자는 주님 안에 거할 때 열매를
+            맺고 주님의 사랑 안에서 서로 사랑합니다.
+          </p>
+          <span class="tag">주제성구</span>
+          <p><strong>요한복음 15장 5절</strong></p>
+          <p class="q">
+            묵상 질문: 가지가 포도나무를 떠나 열매를 맺을 수 없다는 말씀은
+            무엇을 뜻하는가?
+          </p>
+          <div class="check-row">
+            <label class="check-box"
+              ><input type="checkbox" class="readCheck" data-ch="15" />15장 통독
+              완료</label
+            ><label class="check-box memory"
+              ><input
+                type="checkbox"
+                class="memoryCheck"
+                data-ch="15"
+              />주제성구 암송 완료</label
+            >
+          </div>
+        </div>
+      </details>
+      <details class="chapter" data-ch="16">
+        <summary>
+          <div>
+            <strong
+              >16장 · 성령께서 진리 가운데로 인도하시리라
+              <span class="done-dot" id="status16"></span></strong
+            ><small>성령의 사역 · 근심과 기쁨 · 승리</small>
+          </div>
+        </summary>
+        <div class="content">
+          <span class="tag">핵심 메시지</span>
+          <p>
+            예수님은 보혜사 성령께서 죄와 의와 심판에 대하여 세상을 책망하시고
+            제자들을 모든 진리 가운데로 인도하실 것을 약속하십니다.
+          </p>
+          <span class="tag">주제성구</span>
+          <p><strong>요한복음 16장 33절</strong></p>
+          <p class="q">
+            묵상 질문: 예수님이 세상을 이기셨다는 선언은 제자들의 두려움을
+            어떻게 바꾸는가?
+          </p>
+          <div class="check-row">
+            <label class="check-box"
+              ><input type="checkbox" class="readCheck" data-ch="16" />16장 통독
+              완료</label
+            ><label class="check-box memory"
+              ><input
+                type="checkbox"
+                class="memoryCheck"
+                data-ch="16"
+              />주제성구 암송 완료</label
+            >
+          </div>
+        </div>
+      </details>
+      <details class="chapter" data-ch="17">
+        <summary>
+          <div>
+            <strong
+              >17장 · 하나가 되게 하옵소서
+              <span class="done-dot" id="status17"></span></strong
+            ><small>영광 · 보호 · 거룩 · 하나 됨</small>
+          </div>
+        </summary>
+        <div class="content">
+          <span class="tag">핵심 메시지</span>
+          <p>
+            예수님은 자신과 제자들과 장차 믿을 사람들을 위해 기도하시며, 진리로
+            거룩하게 되고 하나님 안에서 하나가 되기를 구하십니다.
+          </p>
+          <span class="tag">주제성구</span>
+          <p><strong>요한복음 17장 21절</strong></p>
+          <p class="q">
+            묵상 질문: 예수님이 구하신 교회의 하나 됨은 무엇을 드러내는가?
+          </p>
+          <div class="check-row">
+            <label class="check-box"
+              ><input type="checkbox" class="readCheck" data-ch="17" />17장 통독
+              완료</label
+            ><label class="check-box memory"
+              ><input
+                type="checkbox"
+                class="memoryCheck"
+                data-ch="17"
+              />주제성구 암송 완료</label
+            >
+          </div>
+        </div>
+      </details>
+      <details class="chapter" data-ch="18">
+        <summary>
+          <div>
+            <strong
+              >18장 · 진리를 증언하러 오신 왕
+              <span class="done-dot" id="status18"></span></strong
+            ><small>붙잡히심 · 베드로의 부인 · 빌라도</small>
+          </div>
+        </summary>
+        <div class="content">
+          <span class="tag">핵심 메시지</span>
+          <p>
+            예수님은 스스로 붙잡히는 길을 피하지 않으시고, 세상에 속하지 않은
+            나라의 왕으로서 진리를 증언하십니다.
+          </p>
+          <span class="tag">주제성구</span>
+          <p><strong>요한복음 18장 37절</strong></p>
+          <p class="q">
+            묵상 질문: 예수님과 베드로는 같은 위기 앞에서 각각 어떻게
+            반응하는가?
+          </p>
+          <div class="check-row">
+            <label class="check-box"
+              ><input type="checkbox" class="readCheck" data-ch="18" />18장 통독
+              완료</label
+            ><label class="check-box memory"
+              ><input
+                type="checkbox"
+                class="memoryCheck"
+                data-ch="18"
+              />주제성구 암송 완료</label
+            >
+          </div>
+        </div>
+      </details>
+      <details class="chapter" data-ch="19">
+        <summary>
+          <div>
+            <strong
+              >19장 · 다 이루었다
+              <span class="done-dot" id="status19"></span></strong
+            ><small>십자가 · 죽으심 · 장사</small>
+          </div>
+        </summary>
+        <div class="content">
+          <span class="tag">핵심 메시지</span>
+          <p>
+            예수님은 하나님의 뜻과 성경의 말씀을 이루시며 십자가에서 죽으셨고,
+            “다 이루었다”는 선언으로 구속 사역의 완성을 밝히십니다.
+          </p>
+          <span class="tag">주제성구</span>
+          <p><strong>요한복음 19장 30절</strong></p>
+          <p class="q">
+            묵상 질문: 요한은 예수님의 죽음이 우연이 아니라 성경의 성취임을
+            어떻게 보여 주는가?
+          </p>
+          <div class="check-row">
+            <label class="check-box"
+              ><input type="checkbox" class="readCheck" data-ch="19" />19장 통독
+              완료</label
+            ><label class="check-box memory"
+              ><input
+                type="checkbox"
+                class="memoryCheck"
+                data-ch="19"
+              />주제성구 암송 완료</label
+            >
+          </div>
+        </div>
+      </details>
+      <details class="chapter" data-ch="20">
+        <summary>
+          <div>
+            <strong
+              >20장 · 보지 못하고 믿는 자들은 복되도다
+              <span class="done-dot" id="status20"></span></strong
+            ><small>빈 무덤 · 부활 · 도마 · 기록 목적</small>
+          </div>
+        </summary>
+        <div class="content">
+          <span class="tag">핵심 메시지</span>
+          <p>
+            부활하신 예수님은 마리아와 제자들에게 나타나 평안을 주시고, 의심하는
+            도마를 믿음의 고백으로 이끄십니다.
+          </p>
+          <span class="tag">주제성구</span>
+          <p><strong>요한복음 20장 31절</strong></p>
+          <p class="q">묵상 질문: 요한이 이 표적들을 기록한 목적은 무엇인가?</p>
+          <div class="check-row">
+            <label class="check-box"
+              ><input type="checkbox" class="readCheck" data-ch="20" />20장 통독
+              완료</label
+            ><label class="check-box memory"
+              ><input
+                type="checkbox"
+                class="memoryCheck"
+                data-ch="20"
+              />주제성구 암송 완료</label
+            >
+          </div>
+        </div>
+      </details>
+      <details class="chapter" data-ch="21">
+        <summary>
+          <div>
+            <strong
+              >21장 · 내 양을 먹이라
+              <span class="done-dot" id="status21"></span></strong
+            ><small>갈릴리 바다 · 베드로의 회복 · 따르라</small>
+          </div>
+        </summary>
+        <div class="content">
+          <span class="tag">핵심 메시지</span>
+          <p>
+            부활하신 예수님은 제자들에게 아침을 준비하시고 세 번 부인했던
+            베드로에게 세 번 사랑을 물으시며 양을 맡기고 다시 부르십니다.
+          </p>
+          <span class="tag">주제성구</span>
+          <p><strong>요한복음 21장 17절</strong></p>
+          <p class="q">
+            묵상 질문: 예수님은 실패한 베드로를 어떤 말과 사명으로
+            회복시키시는가?
+          </p>
+          <div class="check-row">
+            <label class="check-box"
+              ><input type="checkbox" class="readCheck" data-ch="21" />21장 통독
+              완료</label
+            ><label class="check-box memory"
+              ><input
+                type="checkbox"
+                class="memoryCheck"
+                data-ch="21"
+              />주제성구 암송 완료</label
+            >
+          </div>
+        </div>
+      </details>
+      <div class="section-title" id="message">5분 메시지</div>
+      <section class="message">
+        <h2>죽음을 지나 생명으로</h2>
+        <p>
+          요한복음 11장에서 나사로는 무덤에 누워 있습니다. 사람들은 죽음 앞에서
+          울었고, 예수님도 눈물을 흘리셨습니다. 그러나 예수님의 눈물은 죽음 앞에
+          힘없이 무너진 눈물이 아니었습니다. 예수님은 “나는 부활이요 생명”이라고
+          선언하시고 나사로를 무덤 밖으로 불러내셨습니다.
+        </p>
+        <p>
+          나사로를 살리신 사건은 예수님이 걸어가실 길을 미리 보여 줍니다.
+          예수님은 한 알의 밀처럼 죽으시고 많은 생명의 열매를 맺으십니다.
+          제자들의 발을 씻기시고 끝까지 사랑하신 주님은 십자가에서 “다
+          이루었다”고 선언하십니다. 그 죽음은 실패가 아니라 아버지께서 맡기신
+          구원을 완성한 죽음입니다.
+        </p>
+        <p>
+          무덤은 예수님을 가두지 못했습니다. 부활하신 주님은 두려워 문을 닫아 둔
+          제자들에게 찾아와 “너희에게 평강이 있을지어다”라고 말씀하십니다.
+          의심하던 도마는 예수님 앞에서 “나의 주님이시요 나의
+          하나님이시니이다”라고 고백합니다.
+        </p>
+        <p>
+          마지막 장에서 예수님은 실패한 베드로도 버리지 않으십니다. 주님은
+          베드로에게 사랑을 물으시고 “내 양을 먹이라”, “나를 따르라”고
+          말씀하십니다. 요한복음은 생명이신 예수님이 죽음을 이기셨으며, 넘어진
+          제자까지 다시 세워 주님의 양을 맡기신다는 사실로 끝납니다.
+        </p>
+      </section>
+      <section class="message" id="questions">
+        <h3>통독 후 나눔 질문</h3>
+        <p>
+          1. 요한복음 11–21장에서 예수님의 사랑이 가장 분명하게 나타난 장면은
+          무엇입니까?
+        </p>
+        <p>2. 예수님이 제자들의 발을 씻기신 이유는 무엇입니까?</p>
+        <p>
+          3. “다 이루었다”는 말씀은 예수님의 십자가가 무엇을 완성했다는
+          뜻입니까?
+        </p>
+        <p>4. 도마의 고백은 예수님이 누구신지를 어떻게 보여 줍니까?</p>
+        <p>
+          5. 베드로를 회복시키신 예수님의 말씀에서 발견되는 주님의 성품은
+          무엇입니까?
+        </p>
+      </section>
+    </main>
+    <footer>신약 8주차 · 요한복음 11–21장 · 새빛교회 성경통독</footer>
+    <script>
+      const chapters = [
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+      ];
+      const read = JSON.parse(
+        localStorage.getItem("saebit_week8_read") || "{}",
+      );
+      const memory = JSON.parse(
+        localStorage.getItem("saebit_week8_memory") || "{}",
+      );
+      function update() {
+        document
+          .querySelectorAll(".readCheck")
+          .forEach((x) => (x.checked = !!read[x.dataset.ch]));
+        document
+          .querySelectorAll(".memoryCheck")
+          .forEach((x) => (x.checked = !!memory[x.dataset.ch]));
+        const rd = chapters.filter((n) => read[n]).length,
+          md = chapters.filter((n) => memory[n]).length;
+        document.getElementById("readBar").style.width =
+          (rd / chapters.length) * 100 + "%";
+        document.getElementById("memoryBar").style.width =
+          (md / chapters.length) * 100 + "%";
+        document.getElementById("readLabel").textContent =
+          rd +
+          " / 11장 완료 (" +
+          Math.round((rd / chapters.length) * 100) +
+          "%)";
+        document.getElementById("memoryLabel").textContent =
+          md +
+          " / 11구절 완료 (" +
+          Math.round((md / chapters.length) * 100) +
+          "%)";
+        chapters.forEach((n) => {
+          const s = document.getElementById("status" + n);
+          s.textContent =
+            read[n] && memory[n]
+              ? "✓ 통독·암송 완료"
+              : read[n]
+                ? "✓ 통독 완료"
+                : memory[n]
+                  ? "✓ 암송 완료"
+                  : "";
+        });
+      }
+      document.querySelectorAll(".readCheck").forEach((x) =>
+        x.addEventListener("change", () => {
+          read[x.dataset.ch] = x.checked;
+          localStorage.setItem("saebit_week8_read", JSON.stringify(read));
+          update();
+        }),
+      );
+      document.querySelectorAll(".memoryCheck").forEach((x) =>
+        x.addEventListener("change", () => {
+          memory[x.dataset.ch] = x.checked;
+          localStorage.setItem("saebit_week8_memory", JSON.stringify(memory));
+          update();
+        }),
+      );
+      update();
+    </script>
+  </body>
+</html>

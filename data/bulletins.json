@@ -1,9 +1,35 @@
 [
   {
-    "id":"2026-09-20","date":"2026-09-20","title":"2026년 9월 20일 주보","subtitle":"주일예배 주보","sermonTitle":"그리스도의 몸을 세우는 사람들","scripture":"에베소서 4장 11–13절","images":["assets/bulletin-2026-09-20-p1.jpg","assets/bulletin-2026-09-20-p2.jpg"]
+    "id": "2026-09-27",
+    "date": "2026-09-27",
+    "title": "2026년 9월 27일 주보",
+    "subtitle": "주일예배 주보",
+    "sermonTitle": "오직 사랑 안에서",
+    "scripture": "에베소서 4장 1–16절",
+    "images": [
+      "assets/bulletin-2026-09-27-p1.jpg",
+      "assets/bulletin-2026-09-27-p2.jpg"
+    ]
   },
   {
-    "id":"2026-09-13","date":"2026-09-13","title":"2026년 9월 13일 주보","subtitle":"주일예배 주보","sermonTitle":"각 사람에게 주신 은혜","scripture":"에베소서 4장","images":[]
+    "id": "2026-09-20",
+    "date": "2026-09-20",
+    "title": "2026년 9월 20일 주보",
+    "subtitle": "주일예배 주보",
+    "sermonTitle": "그리스도의 몸을 세우는 사람들",
+    "scripture": "에베소서 4장 11–13절",
+    "images": [
+      "assets/bulletin-2026-09-20-p1.jpg",
+      "assets/bulletin-2026-09-20-p2.jpg"
+    ]
+  },
+  {
+    "id": "2026-09-13",
+    "date": "2026-09-13",
+    "title": "2026년 9월 13일 주보",
+    "subtitle": "주일예배 주보",
+    "sermonTitle": "각 사람에게 주신 은혜",
+    "scripture": "에베소서 4장",
+    "images": []
   }
 ]
-
