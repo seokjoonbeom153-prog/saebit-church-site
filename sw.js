@@ -1,4 +1,4 @@
-const CACHE = "saebit-church-v6";
+const CACHE = "saebit-church-v7";
 const ASSETS = [
   "./",
   "./index.html",
@@ -6,11 +6,12 @@ const ASSETS = [
   "./manifest.webmanifest",
   "./app-icon.svg",
   "./bulletins/index.html",
-  "./bulletins/2026-09-27.html",
-  "./assets/bulletin-2026-09-27-p1.jpg",
-  "./assets/bulletin-2026-09-27-p2.jpg",
+  "./bulletins/2026-10-04.html",
+  "./assets/bulletin-2026-10-04-p1.jpg",
+  "./assets/bulletin-2026-10-04-p2.jpg",
+  "./assets/bible-week-09.png",
   "./bible-reading/index.html",
-  "./bible-reading/new-testament-week8.html",
+  "./bible-reading/new-testament-week9.html",
   "./family-prayers/index.html",
   "./family-prayers/prayer-for-family.html",
   "./sermons/index.html",
@@ -56,3 +57,4 @@ self.addEventListener("fetch", (event) => {
       ),
   );
 });
+
