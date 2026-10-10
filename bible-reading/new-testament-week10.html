@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>신약 10주차 · 사도행전 11–20장 | 새빛교회</title>
+<meta name="theme-color" content="#173b4a">
+<style>
+:root{--bg:#f4f6f2;--card:#fff;--text:#1f2937;--muted:#697386;--line:#e4e8ec;--accent:#173b4a;--soft:#eef3f5;--good:#2c7a55}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;line-height:1.7}.wrap{max-width:900px;margin:auto;padding:0 16px}a{text-decoration:none;color:inherit}
+header{background:#fff;border-bottom:1px solid var(--line)}.top{display:flex;justify-content:space-between;align-items:center;padding:16px 0}.brand{font-weight:850}.home{font-size:14px;font-weight:800;color:var(--accent)}
+main{padding:22px 0 60px}.hero,.panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;margin-bottom:16px}.hero{background:linear-gradient(135deg,#173b4a,#28566c);color:white}.eyebrow{font-size:12px;font-weight:900;letter-spacing:.12em;color:#ead7aa}.hero h1{font-size:34px;line-height:1.2;margin:8px 0}.hero p{margin:0;color:#e7eef5}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.day{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;text-align:center}.day b{display:block;font-size:24px;color:var(--accent);margin-bottom:8px}.day span{font-weight:850}.day small{display:block;color:var(--muted);margin-top:6px}
+.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}.check{display:flex;align-items:center;gap:10px;background:var(--soft);border-radius:14px;padding:13px}.check input{width:20px;height:20px}.progress{height:14px;background:var(--soft);border-radius:999px;overflow:hidden}.bar{height:100%;width:0;background:var(--good)}#label{font-weight:800;color:var(--accent)}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.hero h1{font-size:29px}.checks{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap top"><div class="brand">새빛교회 · 성경통독</div><a class="home" href="../index.html">교회 홈</a></div></header>
+<main class="wrap">
+<section class="hero"><div class="eyebrow">NEW TESTAMENT · WEEK 10</div><h1>사도행전 11–20장</h1><p>복음이 교회의 경계를 넘어 땅끝을 향해 퍼져가는 여정을 읽습니다.</p></section>
+<section class="panel">
+<h2>이번 주 통독 범위</h2>
+<div class="grid">
+<div class="day"><b>월</b><span>행 11–12장</span><small>10월 12일</small></div>
+<div class="day"><b>화</b><span>행 13–14장</span><small>10월 13일</small></div>
+<div class="day"><b>수</b><span>행 15–16장</span><small>10월 14일</small></div>
+<div class="day"><b>목</b><span>행 17–18장</span><small>10월 15일</small></div>
+<div class="day"><b>금</b><span>행 19–20장</span><small>10월 16일</small></div>
+</div>
+</section>
+<section class="panel">
+<h2>통독 체크</h2>
+<div class="progress"><div class="bar" id="bar"></div></div><p id="label">0 / 5일 완료</p>
+<div class="checks">
+<label class="check"><input type="checkbox" data-day="mon"> 월 · 행 11–12장</label>
+<label class="check"><input type="checkbox" data-day="tue"> 화 · 행 13–14장</label>
+<label class="check"><input type="checkbox" data-day="wed"> 수 · 행 15–16장</label>
+<label class="check"><input type="checkbox" data-day="thu"> 목 · 행 17–18장</label>
+<label class="check"><input type="checkbox" data-day="fri"> 금 · 행 19–20장</label>
+</div>
+</section>
+<section class="panel"><h2>이번 주 묵상 방향</h2><p>사도행전 11–20장은 안디옥 교회의 성장, 바울과 바나바의 선교, 예루살렘 회의, 빌립보와 데살로니가·아테네·고린도·에베소에서의 복음 전파를 따라갑니다. 복음이 사람과 지역의 경계를 넘어 어떻게 확장되는지 살펴보며 읽어 보세요.</p></section>
+</main>
+<script>
+const saved=JSON.parse(localStorage.getItem("saebit_week10_read")||"{}");
+const boxes=[...document.querySelectorAll("input[data-day]")];
+function update(){let n=0;boxes.forEach(b=>{b.checked=!!saved[b.dataset.day];if(b.checked)n++});document.getElementById("bar").style.width=(n/5*100)+"%";document.getElementById("label").textContent=n+" / 5일 완료 ("+Math.round(n/5*100)+"%)"}
+boxes.forEach(b=>b.addEventListener("change",()=>{saved[b.dataset.day]=b.checked;localStorage.setItem("saebit_week10_read",JSON.stringify(saved));update()}));update();
+</script>
+</body></html>
