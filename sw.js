@@ -1,4 +1,4 @@
-const CACHE = "saebit-church-v9";
+const CACHE = "saebit-church-v10";
 const ASSETS = [
   "./",
   "./index.html",
