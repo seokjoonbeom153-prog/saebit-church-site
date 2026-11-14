@@ -1,5 +1,8 @@
-const CACHE = "saebit-church-v14-20261108";
+const CACHE = "saebit-church-v15-20261115";
 const ASSETS = [
+  "./bulletins/2026-11-15.html",
+  "./assets/bulletin-2026-11-15-p1.jpg",
+  "./assets/bulletin-2026-11-15-p2.jpg",
   "./bulletins/2026-11-08.html",
   "./assets/bulletin-2026-11-08-p1.jpg",
   "./assets/bulletin-2026-11-08-p2.jpg",
